@@ -1,63 +1,88 @@
-# Submission Reminder App
+# 📌 Submission Reminder App
 
 This repository contains a shell script and associated files to create an environment for the **Submission Reminder App**, a tool designed to send reminders for upcoming assignment deadlines.
 
-## Overview
+## 📝 Overview
 
-The app is composed of a shell script (`startup.sh`) that sends reminders to students who have pending assignments. The environment is set up using a **shell script** (`create_environment.sh`), which automates the process of creating the necessary directories and files. The app simulates a real-world system where the user's submissions are tracked and reminders are sent based on their submission status.
+The app consists of a **shell script (`startup.sh`)** that checks and sends reminders to students who have pending assignments. The environment is **automatically set up** using the `create_environment.sh` script, which organizes the necessary directories and files.
 
-## Features
+## ✨ Features
 
-- **Directory Setup**: Automatically creates a directory structure for the app.
-- **File Setup**: Populates the app with essential files (`reminder.sh`, `functions.sh`, `config.env`, `submissions.txt`, `startup.sh`).
-- **Student Tracking**: Reads student submission data from `submissions.txt` and sends reminders for pending submissions.
-- **Startup Script**: A script that initiates the reminder process by reading data, checking submission status, and sending reminders.
+- ✅ **Automated Setup**: Creates a structured directory for the application.
+- ✅ **File Population**: Generates essential files (`reminder.sh`, `functions.sh`, `config.env`, `submissions.txt`, `startup.sh`).
+- ✅ **Student Tracking**: Reads student submission data and sends reminders for pending submissions.
+- ✅ **Startup Script**: Runs the entire process by reading data, checking submission status, and displaying notifications.
 
-## Files in the Project
+---
 
-- `create_environment.sh`: The script that sets up the environment by creating directories and files.
-- `reminder.sh`: A script that sends reminders for pending assignments.
-- `functions.sh`: Contains helper functions for checking submission status.
-- `config.env`: Contains environment variables for the app.
-- `startup.sh`: The main script that starts the reminder process.
-- `submissions.txt`: A file containing student records with submission statuses.
+## 📂 Project Structure
 
-## Prerequisites
+```yaml
+submission_reminder_{yourName}/
+│── app/
+│   ├── reminder.sh
+│── assets/
+│   ├── submissions.txt
+│── config/
+│   ├── config.env
+│── modules/
+│   ├── functions.sh
+│── startup.sh
+│── create_environment.sh
+│── README.md
 
-- **Linux-based system** with Bash installed.
-- **Git Bash** or any terminal that supports Bash scripting.
-- **Text editor** (e.g., Visual Studio Code, Sublime Text, or nano) to modify files if needed.
+requirements:
+  - Linux-based system with Bash installed (or Git Bash for Windows)
+  - Git installed for cloning the repository
+  - Text editor (e.g., VS Code, Sublime Text, or nano) to modify files if needed
 
-## Setup Instructions
+steps:
+  - step: 1️⃣ Clone the repository
+    description: Download the project from GitHub.
+    commands:
+      - git clone https://github.com/{your-username}/submission_reminder_app_{your-username}.git
+      - cd submission_reminder_app_{your-username}
 
-Follow the steps below to set up the **Submission Reminder App** on your local machine.
+  - step: 2️⃣ Run the Environment Setup Script
+    description: Execute the `create_environment.sh` script to generate the required directories and files.
+    commands:
+      - bash create_environment.sh
+    note: You will be prompted to **enter your name**, which will be used to name the main directory.
 
-### Step 1: Clone the Repository
+  - step: 3️⃣ Change into the newly created directory
+    description: Navigate into the directory created by `create_environment.sh`.
+    commands:
+      - cd submission_reminder_{yourName}
+    note: Replace `{yourName}` with the name you entered earlier.
 
-Clone the repository to your local machine using Git:
+  - step: 4️⃣ Make the startup script executable
+    description: Ensure `startup.sh` has the right permissions.
+    commands:
+      - chmod +x startup.sh
 
-```bash
-git clone https://github.com/{your-username}/submission_reminder_app_Nina_Cyndy.git
-cd submission_reminder_app_Nina_Cyndy
+  - step: 5️⃣ Start the Application
+    description: Run the script to check assignment submissions.
+    commands:
+      - bash startup.sh
 
-#### Step 2: Run the Environment Setup Script
+issues:
+  - error: "No such file or directory"
+    cause: The script is being executed in the wrong location.
+    solution: Use `ls` to list files and confirm you are in the right directory.
 
-` bash create_environment.sh or sh create_environment.sh
+  - error: "Permission denied"
+    cause: The script does not have execution rights.
+    solution: Run `chmod +x startup.sh` before executing.
 
-This script will:
+  - error: "Environment variables not loading"
+    cause: The `config.env` file is missing or not sourced correctly.
+    solution: Check that `config.env` exists inside the `config/` folder.
 
-Prompt for your name.
+  - error: "Submissions file not found"
+    cause: The `submissions.txt` file is missing in `assets/`.
+    solution: Use `ls assets/` to verify its existence and rerun `create_environment.sh` if necessary.
 
-Create the submission_reminder_{yourName} directory.
+license: MIT License
+description: This project is licensed under the MIT License. Feel free to modify and use it as needed.
 
-Populate the necessary files with pre-defined content.
-
-### Step 3: Navigate to the Created Directory
-
-cd submission_reminder_{yourName}
-
-###  Step 4: Run the Startup Script
-
-bash startup.sh or sh startup.sh
-
-This will start the reminder app, load configuration settings, and check for pending submissions.
+Happy Coding!
