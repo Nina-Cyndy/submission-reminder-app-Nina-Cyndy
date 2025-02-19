@@ -37,5 +37,27 @@ Follow the steps below to set up the **Submission Reminder App** on your local m
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/{your-username}/submission_reminder_app_NinaCyndy.git
-cd submission_reminder_app_NinaCyndy
+git clone https://github.com/{your-username}/submission_reminder_app_Nina_Cyndy.git
+cd submission_reminder_app_Nina_Cyndy
+
+#### Step 2: Run the Environment Setup Script
+
+` bash create_environment.sh or sh create_environment.sh
+
+This script will:
+
+Prompt for your name.
+
+Create the submission_reminder_{yourName} directory.
+
+Populate the necessary files with pre-defined content.
+
+### Step 3: Navigate to the Created Directory
+
+cd submission_reminder_{yourName}
+
+###  Step 4: Run the Startup Script
+
+bash startup.sh or sh startup.sh
+
+This will start the reminder app, load configuration settings, and check for pending submissions.

@@ -23,9 +23,9 @@ touch config/config.env
 touch modules/functions.sh
 touch startup.sh
 
-#Step 6: Populate the files
-#Populate reminder.sh file
-cat <<EOF > "app/reminder.sh"
+# Step 6: Populate the files
+# Populate reminder.sh file
+cat > app/reminder.sh << 'EOF'
 #!/bin/bash
 
 # Source environment variables and helper functions
@@ -40,12 +40,11 @@ echo "Assignment: $ASSIGNMENT"
 echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
-check_submissions $submissions_file
-
+check_submissions "$submissions_file"
 EOF
 
 # Populate the submissions.txt file
-cat <<EOF > "assets/submissions.txt"
+cat > assets/submissions.txt << 'EOF'
 student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
 Chiagoziem, Git, submitted
@@ -59,7 +58,7 @@ Innocente, google drive test, submitted
 EOF
 
 # Populate the config.env file
-cat <<EOF > "config/config.env"
+cat > config/config.env << 'EOF'
 # This is the config file
 ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
@@ -70,7 +69,7 @@ DAYS_REMAINING=2
 EOF
 
 # Populate the functions.sh file
-cat <<EOF > "modules/functions.sh"
+cat > modules/functions.sh << 'EOF'
 #!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
@@ -91,11 +90,10 @@ function check_submissions {
         fi
     done < <(tail -n +2 "$submissions_file") # Skip the header
 }
-
 EOF
 
 # Populate the startup.sh file
-cat <<EOF > "$main_dir/src/startup.sh"
+cat > startup.sh << 'EOF'
 #!/bin/bash
 
 echo "Starting the submissions reminder app ..."
@@ -103,11 +101,10 @@ echo "Starting the submissions reminder app ..."
 source config/config.env
 source modules/functions.sh
 source app/reminder.sh
-
 EOF
 
 # Make startup.sh executable
-chmod +x "/startup.sh"
+chmod +x startup.sh
 
 # Notify the user that the environment has been created
 echo "Environment for submission reminder app has been created!"
